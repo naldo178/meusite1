@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naldo Silva - Especialista em Portões</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold-bg: radial-gradient(circle, #e68d09 0%, hsl(61, 94%, 51%) 100%);
+            --text-dark: hsla(36, 8%, 12%, 0.836);
+            --card-white: hwb(60 97% 2% / 0.842);
+            --whatsapp: hwb(103 8% 18%);
+            --call-blue: #fa153b;
+            --gold-primary: #b8860b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            background: var(--gold-bg);
+            min-height: 100vh;
+            color: var(--text-dark);
+            padding: 25px;
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        /* LOGO */
+        .logo-circle {
+            width: 180px;
+            height: 180px;
+            background: hsl(64, 23%, 38%);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid rgba(238, 7, 226, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: pulse-white 2s infinite;
+        }
+
+        .logo-circle img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            animation: float-logo 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-white {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+
+        @keyframes float-logo {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* HEADER */
+        .header h1 {
+            margin: 10px 0 5px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* SEÇÕES */
+        .section-title {
+            text-align: left;
+            margin: 30px 0 15px;
+            font-weight: bold;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(74,55,1,0.2);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* SERVIÇOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .service-card {
+            background: var(--card-white);
+            padding: 10px 2px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .service-card:nth-child(even) { animation-delay: 1s; }
+        .service-card:nth-child(3n) { animation-delay: 2s; }
+
+        .service-card i {
+            font-size: 1.2rem;
+            color: var(--gold-primary);
+            margin-bottom: 5px;
+        }
+
+        .service-card span {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #333;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* BOTÕES */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: shake 5s infinite;
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .btn-wa { background-color: var(--whatsapp); }
+        .btn-call { background-color: var(--call-blue); animation-delay: 2.5s; }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes shake {
+            0%, 85%, 100% { transform: translateX(0); }
+            86%, 88%, 90%, 92%, 94%, 96%, 98% { transform: translateX(-2px); }
+            87%, 89%, 91%, 93%, 95%, 97%, 99% { transform: translateX(2px); }
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding-bottom: 30px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <div class="logo-circle">
+        <img src="img.gif" alt="Logo Naldo Silva">
+    </div>
+
+    <div class="header">
+        <h1>Naldo Silva</h1>
+        <h2>Instalação e Manutenção Especializada em Motores de Portão basculante e Deslizante </h2>
+    </div>
+
+    <div class="section-title">
+        Nossos Serviços
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card"><i class="fas fa-gear"></i><span>Motores</span></div>
+        <div class="service-card"><i class="fas fa-hammer"></i><span>Reformas</span></div>
+        <div class="service-card"><i class="fas fa-bolt"></i><span>Travas</span></div>
+        <div class="service-card"><i class="fas fa-lock"></i><span>Fechaduras</span></div>
+        <div class="service-card"><i class="fas fa-house-signal"></i><span>Controles</span></div>
+        <div class="service-card"><i class="fas fa-user-shield"></i><span>Segurança</span></div>
+        <div class="service-card"><i class="fas fa-tools"></i><span>Reparos</span></div>
+        <div class="service-card"><i class="fas fa-screwdriver-wrench"></i><span>Instalação</span></div>
+    </div>
+
+    <div class="section-title">Fale Conosco</div>
+
+    <a href="https://wa.me/5511999401875?text=Olá Naldo, gostaria de um orçamento." target="_blank" class="btn btn-wa">
+        <i class="fab fa-whatsapp"></i> Chamar Naldo Silva no WhatsApp
+    </a>
+
+    <a href="tel:11999401875" class="btn btn-call">
+        <i class="fas fa-phone-alt"></i> Ligar Para Naldo Silva Agora
+    </a>
+
+    <div class="footer">
+        Atendimento em FRANCO DA ROCHA E REGIÃO/SP<br>
+        <strong>(11) 99940-1875</strong><br>
+        © 2026 Naldo Silva
+    </div>
+
+</div>
+
+</body>
+</html>
